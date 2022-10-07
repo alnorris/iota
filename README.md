@@ -1,4 +1,4 @@
-#  💫 Iota
+# 💫 Iota
 
 Manage stateful logic with class methods like the good ol' times, but with reuable hooks.
 
@@ -10,8 +10,7 @@ npm install iota-hook
 
 ## Quickstart
 
-Create a ususable instance of iota to grab a remote api data via debounce from  incoming props
-
+Create a ususable instance of iota to grab a remote api data via debounce from incoming props
 
 ```js
 import createIota from 'iota-hook'
@@ -67,16 +66,12 @@ const useLocationHook = createIota<LocationSearchProps, LocationSearchState, Loc
 
 ```
 
-
-
 Then you can reuse this in any component
-
-
 
 ```js
 import useLocationHook from './useLocationHook'
 
-function App() {
+function App () {
   const [searchText, setSearchText] = React.useState('')
 
   const data = useLocationHook({ query: searchText })
@@ -85,10 +80,8 @@ function App() {
 
   return (
     <div>
-      <input type="text" onChange={(e) => setSearchText(e.target.value)} />
+      <input type='text' onChange={e => setSearchText(e.target.value)} />
     </div>
-  );
+  )
 }
-
-
 ```
