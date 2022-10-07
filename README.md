@@ -18,7 +18,24 @@ import createIota from 'iota-hook'
 import debounce from 'lodash.debounce'
 import searchQuery from './searchQuery'
 
-const useLocationHook = createIota({
+interface LocationSearchProps {
+  query: string
+}
+interface LocationSearchState {
+  searchResults: string[]
+}
+
+interface LocationCustomMethods = {
+  search: (query: string) => Promise<void>
+}
+
+interface LocationSearchResults = {
+  results: { city: string, country: string }[]
+  amount: number
+}
+
+
+const useLocationHook = createIota<LocationSearchProps, LocationSearchState, LocationCustomMethods, LocationSearchResults>({
   init: (self) => {
     self.state = { searchResults: [] }
   },
